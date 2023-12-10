@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notesome.Views.AboutPage"
+             xmlns:vm="clr-namespace:Notesome.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentStart">#7F00FF</Color>
+            <!-- Púrpura -->
+            <Color x:Key="AccentEnd">#bb175f</Color>
+            <!-- Morado -->
+            <Color x:Key="BackgroundColor">#000000</Color>
+            <!-- Negro puro -->
+            <Color x:Key="ContainerColor">#191c24</Color>
+            <!-- Negro más oscuro -->
+            <Color x:Key="EditorBorderColor">#FFFFFF</Color>
+            <!-- Contorno de la caja de texto (mismo color del fondo) -->
+            <Color x:Key="TextColor">#FFFFFF</Color>
+            <Color x:Key="ContainerTextColor">#757575</Color>
+            <!-- Blanco -->
+            <Color x:Key="ButtonBorderColor">#FFFFFF</Color>
+
+            <Color x:Key="LighterBlack">#181616</Color>
+
+            <!-- Contorno blanco para el botón -->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource BackgroundColor}" Margin="0" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <!-- Banner Row -->
+            <RowDefinition Height="20" />
+            <!-- Separación entre banner y "Bloc de notas" -->
+            <RowDefinition Height="Auto" />
+            <!-- "Bloc de notas" Section -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Banner Row con gradiente -->
+        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource AccentEnd}" Padding="10">
+            <!-- Contenido del banner -->
+            <StackLayout Orientation="Horizontal">
+                <!-- Icono en el primer tercio -->
+                <Image Source="icon_about.png" HeightRequest="50" WidthRequest="80" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+
+                <!-- Texto en el segundo tercio -->
+                <Label Text="¿Quieres más funcionalidad?" FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="{StaticResource TextColor}"/>
+
+                <!-- Botón en el tercer tercio -->
+                <Button Text="Cambiar a Pro" Command="{Binding UpgradeToProCommand}" BackgroundColor="{StaticResource AccentEnd}" TextColor="White" BorderColor="{StaticResource ButtonBorderColor}" BorderWidth="1" HorizontalOptions="End" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Separación -->
+        <BoxView Grid.Row="2" HeightRequest="20" />
+
+        <!-- "Bloc de notas" Section -->
+        <StackLayout Grid.Row="3" Padding="20" BackgroundColor="{StaticResource ContainerColor}">
+            <Label Text="Bloc de notas" FontSize="Title" TextColor="{StaticResource TextColor}"/>
+
+            <!-- Zona de texto con contorno -->
+            <Frame BackgroundColor="{StaticResource LighterBlack}" BorderColor="{StaticResource EditorBorderColor}" CornerRadius="5" HasShadow="False" Margin="0,10,0,10">
+                <Editor Placeholder="Escribe tu nota aquí..." HeightRequest="100" TextColor="{StaticResource ContainerTextColor}" PlaceholderColor="{StaticResource TextColor}"/>
+            </Frame>
+
+
+            <!-- Botón para agregar nota -->
+            <Button Text="Agregar nota" Command="{Binding AddNoteCommand}" BackgroundColor="#00d25b" TextColor="White"/>
+        </StackLayout>
+
+<!-- "Notas Recientes" Section -->
+<StackLayout Grid.Row="4" Padding="20" BackgroundColor="{StaticResource ContainerColor}">
+    <Label Text="Notas Recientes" FontSize="Title" TextColor="{StaticResource TextColor}" FontAttributes="Bold"/>
+
+    <BoxView HeightRequest="1" Color="White" HorizontalOptions="FillAndExpand" Margin="0,5,0,5"/>
+
+    <!-- Primer Renglón -->
+    <StackLayout Orientation="Horizontal" Spacing="10">
+        <!-- Imagen a la izquierda -->
+        <Image Source="icon_about.png" HeightRequest="40" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+        <!-- Detalles de la nota a la derecha -->
+        <StackLayout>
+            <Label Text="Nota 1" FontSize="Subtitle" TextColor="{StaticResource TextColor}" FontAttributes="Bold"/>
+            <Label Text="Detalles de la nota 1" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+            <Label Text="Hace 15 mins" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+            <Label Text="Solo mío" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+        </StackLayout>
+    </StackLayout>
+
+    <!-- Separador -->
+    <BoxView HeightRequest="1" Color="White" HorizontalOptions="FillAndExpand" Margin="0,5,0,5"/>
+
+    <!-- Segundo Renglón (similar a primer renglón) -->
+    <StackLayout Orientation="Horizontal" Spacing="10">
+        <Image Source="icon_about.png" HeightRequest="40" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+        <StackLayout>
+            <Label Text="Nota 2" FontSize="Subtitle" TextColor="{StaticResource TextColor}" FontAttributes="Bold"/>
+            <Label Text="Detalles de la nota 2" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+            <Label Text="Hace 15 mins" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+            <Label Text="Solo mío" FontSize="Small" TextColor="{StaticResource TextColor}"/>
+        </StackLayout>
+    </StackLayout>
+
+    <!-- Separador -->
+    <BoxView HeightRequest="1" Color="White" HorizontalOptions="FillAndExpand" Margin="0,5,0,5"/>
+</StackLayout>
+
+
+    </Grid>
+
+</ContentPage>

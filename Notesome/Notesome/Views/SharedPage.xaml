@@ -1,0 +1,28 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notesome.Views.SharedPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:Notesome.ViewModels"
+             BackgroundColor="#191c19">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#191c19" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <!-- Definir las filas y columnas según tus necesidades -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Imagen en el centro -->
+            <Image Source="xamarin_logo.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="0" />
+
+            <!-- Texto Bold debajo de la imagen -->
+            <Label Text="No hay nada por aqui." TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" />
+
+            <!-- Texto más pequeño debajo del texto en negrita -->
+            <Label Text="Parece que ninguna nota ha sido compartido contigo" TextColor="White" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
